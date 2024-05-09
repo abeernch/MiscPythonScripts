@@ -1,1 +1,7 @@
+# import numpy
+import numpy as np
+
 inp = list(map(int, input().split()))
+
+# To convert the list into an integer array use
+int_arr = np.array(inp)
