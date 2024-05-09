@@ -1,0 +1,20 @@
+# In the event a space-separated input has to be converted into a matrix use the following script
+# The first input gives the space-separated dimension of the matrix
+# The second input are the elements
+
+# Example:
+# Dimension input =  2 4
+# matrix elements =  1 2 3 4
+#                    5 6 7 8
+
+# n, m = 2, 4
+# A = array[[1 2 3 4]
+#           [5 6 7 8]] 
+
+
+import numpy as np
+n, m = map(int, input().split())                                        # split the input elements as list elements and apply the map function to convert each into an integer
+A = numpy.array([list(map(int, input().split())) for i in range(n)])    # Apply the same as above to create a list with independent elements which is then converted into a numpy array. 
+                                                                        # This time, conversion into a list is recommended as indindual int can not be converted into a np array. Following this, 
+                                                                        # apply list comprehension to determine where the next row of the matrix begins
+                                                                        
