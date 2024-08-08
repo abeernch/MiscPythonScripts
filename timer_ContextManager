@@ -1,0 +1,14 @@
+# Add a decorator for the context manager
+@contextlib.contextmanager
+def timer():
+  """Time the execution of a context block.
+
+  Yields:
+    None
+  """
+  start = time.time()
+  # Send control back to the context block
+  yield
+  end = time.time()
+# Set precision to 6 dec places
+  print('Elapsed: {:.6f}s'.format(end - start))
