@@ -13,4 +13,4 @@ def open_read_only(filename):
   # Yield read_only_file so it can be assigned to my_file
   yield read_only_file
   # Close read_only_file
-  close.read_only_file()
+  read_only_file.close()
