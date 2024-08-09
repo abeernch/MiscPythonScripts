@@ -1,0 +1,10 @@
+from functools import wraps #do this once in the main code
+def run_n_times(n):
+  """Define and return a decorator"""
+  def decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+      for i in range(n):
+        func(*args, **kwargs)
+    return wrapper
+  return decorator
