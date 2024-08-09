@@ -1,0 +1,20 @@
+# Time out decorator
+import signal
+from functools import wraps
+   
+   # Define a reference to the decorator
+   def timeoutNseconds(n):
+        def decorator(func):
+            @wraps(func)
+            
+            def wrapper(*args, **kwargs):
+                # set an alarm for n seconds
+                signal.alarm(n)
+                try:
+                    # call the decorated function
+                    return func(*args, **kwargs)
+                finally:
+                # cancel the alarm (in the event that the function executes before set timeout)
+                signal.alarm(0)
+            return wrapper
+        return(decorator)
