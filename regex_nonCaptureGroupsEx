@@ -1,0 +1,17 @@
+import re
+
+# Sample text
+text = "apple orange apple orange apple orange"
+
+# Regex pattern with a non-capturing group (?:) for 'apple'
+pattern = r"(?:apple)\s(orange)"
+
+# Explanation:
+# (?:apple): Non-capturing group that matches 'apple'. The ?: indicates that this group should not be captured for later use.
+# \s: Matches a space character.
+# (orange): Capturing group that matches 'orange'.
+
+# Find matches
+matches = re.findall(pattern, text)
+
+print("Matches:", matches)  # Output: ['orange', 'orange', 'orange']
