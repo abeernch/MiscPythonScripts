@@ -1,0 +1,18 @@
+import re
+
+# Sample text with repeated words
+text = "This is is a sample text with repeated repeated words."
+
+# Regex pattern with backreferencing to match repeated words
+pattern = r"\b(\w+)\s+\1\b"
+
+# Explanation:
+# \b: Asserts a word boundary (beginning or end of a word).
+# (\w+): Capturing group that matches one or more word characters (letters, digits, or underscores).
+# \s+: Matches one or more whitespace characters.
+# \1: Backreference to the first captured group, ensuring that the same word is repeated.
+
+# Find all repeated words
+matches = re.findall(pattern, text)
+
+print("Repeated words:", matches)  # Output: ['is', 'repeated']
