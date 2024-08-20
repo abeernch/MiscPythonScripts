@@ -1,0 +1,33 @@
+import re
+
+# Sample text
+text = "The quick brown fox jumps over the lazy dog. Dogs are friendly animals."
+
+# Positive lookahead: Find 'dog' followed by 's'
+lookahead_pattern = r"dog(?=s)"
+
+# Negative lookahead: Find 'dog' not followed by 's'
+negative_lookahead_pattern = r"dog(?!s)"
+
+# Positive lookbehind: Find 'dog' preceded by 'lazy '
+lookbehind_pattern = r"(?<=lazy )dog"
+
+# Negative lookbehind: Find 'dog' not preceded by 'lazy '
+negative_lookbehind_pattern = r"(?<!lazy )dog"
+
+# Explanation:
+# dog(?=s): Positive lookahead (?=s) ensures that 'dog' is followed by 's' but does not include 's' in the match.
+# dog(?!s): Negative lookahead (?!s) ensures that 'dog' is not followed by 's'.
+# (?<=lazy )dog: Positive lookbehind (?<=lazy ) ensures that 'dog' is preceded by 'lazy '.
+# (?<!lazy )dog: Negative lookbehind (?<!lazy ) ensures that 'dog' is not preceded by 'lazy '.
+
+# Find matches
+lookahead_match = re.findall(lookahead_pattern, text)
+negative_lookahead_match = re.findall(negative_lookahead_pattern, text)
+lookbehind_match = re.findall(lookbehind_pattern, text)
+negative_lookbehind_match = re.findall(negative_lookbehind_pattern, text)
+
+print("Lookahead match:", lookahead_match)  # Output: []
+print("Negative Lookahead match:", negative_lookahead_match)  # Output: ['dog']
+print("Lookbehind match:", lookbehind_match)  # Output: ['dog']
+print("Negative Lookbehind match:", negative_lookbehind_match)  # Output: ['dog']
