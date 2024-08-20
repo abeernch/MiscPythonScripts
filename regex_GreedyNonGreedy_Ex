@@ -1,0 +1,21 @@
+import re
+
+# Sample text with HTML tags
+text = "<div><span>Hello World</span></div>"
+
+# Greedy quantifier (matches the largest possible string)
+greedy_pattern = r"<.*>"
+
+# Non-greedy quantifier (matches the smallest possible string)
+non_greedy_pattern = r"<.*?>"
+
+# Explanation:
+# <.*>: Greedy quantifier (.*) matches as much text as possible. It matches from the first '<' to the last '>'.
+# <.*?>: Non-greedy quantifier (.*?) matches as little text as possible. It matches the smallest sequence that fits the pattern.
+
+# Find matches
+greedy_match = re.findall(greedy_pattern, text)
+non_greedy_match = re.findall(non_greedy_pattern, text)
+
+print("Greedy match:", greedy_match)  # Output: ['<div><span>Hello World</span></div>']
+print("Non-greedy match:", non_greedy_match)  # Output: ['<div>', '<span>', '</span>', '</div>']
