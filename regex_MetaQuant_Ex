@@ -1,0 +1,21 @@
+import re
+
+# Sample text containing emails
+text = "Please contact us at support@example.com or sales@example.org for assistance."
+
+# Regex pattern to match email addresses
+pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b"
+
+# Explanation:
+# \b: Asserts a word boundary (the beginning or end of a word).
+# [A-Za-z0-9._%+-]+: Matches one or more alphanumeric characters and special characters often found in emails.
+# @: Matches the '@' symbol.
+# [A-Za-z0-9.-]+: Matches one or more characters that are typically found in the domain name.
+# \.: Escapes the dot (.) character.
+# [A-Z|a-z]{2,7}: Matches between 2 and 7 alphabetic characters (the domain suffix, like .com or .org).
+# \b: Asserts a word boundary at the end.
+
+# Find all email addresses
+matches = re.findall(pattern, text)
+
+print("Emails found:", matches)  # Output: ['support@example.com', 'sales@example.org']
